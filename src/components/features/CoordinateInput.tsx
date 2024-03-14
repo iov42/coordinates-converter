@@ -182,8 +182,12 @@ const CoordinateInput = () => {
 		}: { geoJson: any | null; err: string | null } =
 			ConvertCoordinatesToGeoJson(coordinatesForGeoJson);
 
-		if (convertCoordinatesToGeoJsonErr !== null) {
+		if (convertCoordinatesToGeoJsonErr === null) {
 			setGeoJson(geoJsonFromCoordinates);
+		} else {
+			setShowTextFieldError(true);
+			setTextFieldErrorText(convertCoordinatesToGeoJsonErr);
+			console.log(convertCoordinatesToGeoJsonErr);
 		}
 		
 	};
